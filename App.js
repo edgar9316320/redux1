@@ -10,18 +10,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {ProductosScreen} from './Screen/ProductosStackScreen'
 import {HomeScreen} from './Screen/HomeScreen'
 
+//Redux
 import {Provider} from 'react-redux'
 import generateStore from './redux/store'
 
-
-function DetailsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Details!</Text>
-    </View>
-  );
-}
-
+//Pantallas
+import {DetailsScreen} from './Pantallas/details'
 
 
 function SettingsScreen({ navigation }) {
@@ -95,6 +89,13 @@ export default function App() {
 
               // You can return any component that you like here!
               return <Ionicons name={iconName} size={size} color={color} />;
+            },
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
             },
           })}
           tabBarOptions={{

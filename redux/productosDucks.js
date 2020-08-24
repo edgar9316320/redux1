@@ -14,7 +14,7 @@ export default function aymReducer(state = dataInicial, action){
         case OBTENER_PRODUCTOS_EXITO:
             return {...state, array: action.payload}
         case AGREGAR_PRODUCTOS_EXITO:
-            return {...state}
+            return {...state, array: action.payload}
         default:
             return state
     }
@@ -35,8 +35,8 @@ export const obtenerProductosAccion = () => async (dispatch, getState) => {
 
 export const agregarProductosAccion = (nombre, cantidad, precio, descripcion) => async (dispatch, getState) => {
     
-    console.log("dispach es ", getState().productos.array)
-    //const vector = getState().productos.array
+    //console.log("dispach es ", getState().productos.array)
+    const vector = getState().productos.array
     const form = {
         nombre: nombre.nombre,
         precio: cantidad.cantidad,
@@ -45,9 +45,11 @@ export const agregarProductosAccion = (nombre, cantidad, precio, descripcion) =>
     }
     try{
         const res = await axios.post('https://apiaym.herokuapp.com/api/productos', form)
+        const produc = [...vector,res.data];
+        console.log("que me llega: ", res.data)
         dispatch({
             type:  AGREGAR_PRODUCTOS_EXITO,
-            //payload: res.data
+            payload: produc
             //payload: res.data
         })
     }catch(error){
