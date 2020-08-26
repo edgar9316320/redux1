@@ -16,6 +16,7 @@ import generateStore from './redux/store'
 
 //Pantallas
 import {DetailsScreen} from './Pantallas/details'
+import {ClientesScreen} from './Pantallas/clientes'
 
 
 function SettingsScreen({ navigation }) {
@@ -37,7 +38,7 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="Details" component={DetailsScreen} />
+      <HomeStack.Screen name="Clientes" component={ClientesScreen} />
     </HomeStack.Navigator>
   );
 }

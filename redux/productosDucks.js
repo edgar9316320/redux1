@@ -9,7 +9,7 @@ const OBTENER_PRODUCTOS_EXITO = 'OBTENER_PRODUCTOS_EXITO'
 const AGREGAR_PRODUCTOS_EXITO = 'AGREGAR_PRODUCTOS_EXITO'
 
 // reducer
-export default function aymReducer(state = dataInicial, action){
+export default function productosReducer(state = dataInicial, action){
     switch(action.type){
         case OBTENER_PRODUCTOS_EXITO:
             return {...state, array: action.payload}
